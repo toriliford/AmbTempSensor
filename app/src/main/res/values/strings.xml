@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">AmbTempSensor</string>
+    <string name="app_name">Ambient Temperature</string>
     <string name="refreshButton">Refresh</string>
-    <string name="switchTemp">Switch Measurement</string>
+    <string name="switchTemp">Celsius/Fahrenheit</string>
     <string name="placeholderTemp">--°</string>
 </resources>

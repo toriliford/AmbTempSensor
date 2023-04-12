@@ -23,19 +23,18 @@
         android:layout_width="205dp"
         android:layout_height="83dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="188dp"
         android:text="@string/switchTemp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/temperature"
         app:layout_constraintTop_toBottomOf="@+id/temperature" />
 
-    <Button
-        android:id="@+id/refreshTemp"
-        android:layout_width="160dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/refreshButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/temperature" />
+<!--    <Button-->
+<!--        android:id="@+id/refreshTemp"-->
+<!--        android:layout_width="160dp"-->
+<!--        android:layout_height="56dp"-->
+<!--        android:layout_marginTop="46dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:text="@string/refreshButton"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/temperature" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
