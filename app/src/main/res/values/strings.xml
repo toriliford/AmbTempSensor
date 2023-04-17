@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Ambient Temperature</string>
-    <string name="refreshButton">Refresh</string>
     <string name="switchTemp">Celsius/Fahrenheit</string>
     <string name="placeholderTemp">--°</string>
+    <string name="FtoC">Fahrenheit to Celsius</string>
+    <string name="CtoF">Celsius to Fahrenheit</string>
 </resources>

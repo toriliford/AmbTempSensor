@@ -10,6 +10,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private TextView tvTemp;
     private Switch tempSwitch;
+
+    private TextView tvTempF;
     private String errorMsg = "Sensor Not Supported";
 
     @Override
@@ -30,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         //set the textview
         tvTemp = findViewById(R.id.temperature);
-        //set the switch
-        tempSwitch = findViewById(R.id.measurementSwitch);
+        tvTempF = findViewById(R.id.temperature2);
+
 
         //get instance of sensor service, and use that to get an instance of a particular sensor
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -44,6 +47,29 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(ambTemp == null){
             tvTemp.setText(errorMsg);
         }
+
+        //code the solution for the switch
+        tempSwitch = findViewById(R.id.measurementSwitch);
+
+        tempSwitch.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(!tempSwitch.isChecked()){
+                    //tvTempF.setText("--" + "\u00B0" + " F");
+                    tvTempF.setVisibility(View.INVISIBLE);
+                }
+                else if(tempSwitch.isChecked()){
+                    //calculation for changing temperature
+                    String celsiusStr = tvTemp.getText().toString();
+                    double celsiusTemp = Double.parseDouble(celsiusStr);
+                    double calculateF = (celsiusTemp * 1.8) + 32;
+                    String calcFStr = Double.toString(calculateF) + "\u00B0" + " F";
+
+                    tvTempF.setVisibility(View.VISIBLE);
+                    tvTempF.setText(calcFStr);
+                }
+            }
+        });
 
     }// end of onCreate
 
@@ -60,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         //take the temp from the event value (amb temp in degrees celsius)
         float currentTemp = event.values[0];
         // Do something with this sensor data.
-        String tempString = Float.toString(currentTemp) + " \u00B0";
+        String tempString = Float.toString(currentTemp);
 
         tvTemp.setText(tempString);
     }
@@ -79,6 +105,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sensorManager.unregisterListener(this);
     }
 
-    
+
 
 }
